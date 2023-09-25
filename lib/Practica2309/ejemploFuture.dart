@@ -24,6 +24,19 @@ class _EjemploFutureState extends State<EjemploFuture> {
       return Random().nextInt(10);
     });
   }
+
+  Color colorC = Colors.black;
+ 
+  void cambiarColor() {
+    setState(() {
+      colorC = Color.fromARGB(
+        Random().nextInt(255),
+        Random().nextInt(255),
+        Random().nextInt(255),
+        Random().nextInt(255));
+    });
+  }  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +46,7 @@ class _EjemploFutureState extends State<EjemploFuture> {
           builder: (context, snapshot) {
             switch(snapshot.connectionState){
               case ConnectionState.waiting:
-                return const CircularProgressIndicator();
+                return CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(colorC));
               default:
                 if(snapshot.hasError){
                   return const Text("Error");
@@ -42,8 +55,8 @@ class _EjemploFutureState extends State<EjemploFuture> {
                   int data = snapshot.data!;
                   return Text(
                     data.toString(),
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 155, 12, 119), //Color.fromARGB(255, 23, 155, 12),
+                    style: TextStyle(
+                      color: colorC,
                       fontSize: 25
                     ),
                   );
@@ -64,7 +77,7 @@ class _EjemploFutureState extends State<EjemploFuture> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          
+          cambiarColor();
         },
         child: const Icon(Icons.plus_one),),
     );
