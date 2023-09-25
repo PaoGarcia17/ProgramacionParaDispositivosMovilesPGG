@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context){ //SE VISUALIZA EL CONTENIDO
     return MaterialApp(
-      home: EjemploFuture(),
+      home: const EjemploFuture(),
       theme: ThemeData(useMaterial3: true),
     );
   }
