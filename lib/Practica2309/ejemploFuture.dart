@@ -43,7 +43,7 @@ class _EjemploFutureState extends State<EjemploFuture> {
                   return Text(
                     data.toString(),
                     style: const TextStyle(
-                      color: Color.fromARGB(255, 23, 155, 12), 
+                      color: Color.fromARGB(255, 155, 12, 119), //Color.fromARGB(255, 23, 155, 12),
                       fontSize: 25
                     ),
                   );
